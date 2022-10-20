@@ -70,15 +70,15 @@ class Labelling:
         selected_label = [self.labels[i] for i, x in enumerate(check.get_status()) if x == True]
         not_selected_label = [self.labels[i] for i, x in enumerate(check.get_status()) if x == False]
         if not selected_label:
-            selected_label = ['not_classified_6_angle']
+            selected_label = ['not_classified']
         return selected_label, not_selected_label
 
     def __move_file(self, src, label, filename):
-        if not os.path.exists('not_classified_6_angle'):
-            os.mkdir('not_classified_6_angle')
+        if not os.path.exists('not_classified'):
+            os.mkdir('not_classified')
         if not os.path.exists(os.path.join(self.target_sample_dir, label)):
             os.mkdir(os.path.join(self.target_sample_dir, label))
-        if label == 'not_classified_6_angle':
+        if label == 'not_classified':
             target = os.path.join(label, filename)
         else:
             target = os.path.join(self.target_sample_dir, label, filename)
